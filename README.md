@@ -1,11 +1,12 @@
 # PHSX815_Project1
 ## stability simulation of planetary system using Hill criterion (e..g. Chambers et al. 1996)
 
-This repository contains severeal types of programs:
-RandomOrbitParmGenerator.py [Python]
-OrbitCounter.py [Python]
-OrbitAnalysis.py [Python]
-Constants.py [Python]
+This repository contains severeal types of programs: \n
+
+RandomOrbitParmGenerator.py [Python] \n
+OrbitCounter.py [Python]   \n
+OrbitAnalysis.py [Python].  \n
+Constants.py [Python].     \n
 
 ## Usage
 RandomOrbitParmGenerator.py [Python] is imported to generate list of random chosen orbit parameter values for each planet around star [in the program, default as our sun], Orbit parameter values are generated to calculate fractional orbital separation for examination of stability of two bodies system, Hill stability Criterion \citep{Gladman:1993, Chambers:1996}. The critical value of 1 is taken to indicate mutual close encounter for a two bodies system. H > 1 indicating stable configuration of two pairs, whereas H < 1 indicating unstabe configuration. 
