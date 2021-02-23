@@ -1,5 +1,5 @@
 # PHSX815_Project1
-## stability simulation of planetary system using Hill criterion (e..g. Chambers et al. 1996): >1 => stable
+## stability simulation of planetary system using Hill criterion (e..g. Chambers et al. 1996)
 
 This repository contains severeal types of programs:
 RandomOrbitParmGenerator.py [Python]
