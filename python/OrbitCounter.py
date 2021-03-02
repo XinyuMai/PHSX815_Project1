@@ -1,8 +1,10 @@
 
 # coding: utf-8
 
-# In[57]:
+# In[6]:
 
+
+# coding: utf-8
 
 #! /usr/bin/env python
 
@@ -10,9 +12,10 @@
 import sys
 import numpy as np
 
-# import our Random class from RandomOrbitParmGenerator.py file
-#sys.path.append(".")
-from RandomOrbitParmGenerator import RandomOrbitElement
+# import our Random class from python/Random.py file
+sys.path.append(".")
+from python.MySort import MySort
+from python.Random import RandomOrbit
 
 # main function for our Orbit stability Python code
 if __name__ == "__main__":
@@ -25,8 +28,8 @@ if __name__ == "__main__":
     # default seed
     seed = 5555
 
-    # default number of orbiting planets around the Sun
-    Nplanets = 2
+    # default hill criterion as 1
+    c = 1.
 
     # default number of system testing (per experiment)
     Nsystem = 1
@@ -41,11 +44,10 @@ if __name__ == "__main__":
     if '-seed' in sys.argv:
         p = sys.argv.index('-seed')
         seed = sys.argv[p+1]
-    if '-Nplanets' in sys.argv:
-        p = sys.argv.index('-Nplanets')
-        np = float(sys.argv[p+1])
-        if np >= 0 and np <= 1:
-            Nplanets = np
+    if '-c' in sys.argv:
+        p = sys.argv.index('-c')
+        c = float(sys.argv[p+1])
+        
     if '-Nsystem' in sys.argv:
         p = sys.argv.index('-Nsystem')
         Ns = int(sys.argv[p+1])
@@ -62,17 +64,21 @@ if __name__ == "__main__":
         doOutputFile = True
 
     # class instance of our Random class using seed
-    random = RandomOrbitElement(seed)
+    random = RandomOrbit(seed)
 
     if doOutputFile:
         outfile = open(OutputFileName, 'w')
+        #outfile.write(str(Nplanets)+" \n")
         for e in range(0,Nexp):
             for t in range(0,Nsystem):
-                outfile.write(str(random.hill_parms(Nplanets))+" ")
+                outfile.write(str(random.hill_parms(c))+" ")
             outfile.write(" \n")
         outfile.close()
     else:
+        #print(Nplanets)
         for e in range(0,Nexp):
             for t in range(0,Nsystem):
-                print(random.hill_parms(Nplanets), end=' ')
+                print(random.hill_parms(), end=' ')
             print(" ")
+
+
